@@ -1,14 +1,20 @@
 import React, {useState, useEffect} from "react";
 
 
-function StatSearchZipAndPrice () {
+function StatSearchZipAndPrice (props) {
 
     const [zipCodeSearched, setZipCodeSearched] = useState('');
     const [entreeSearched, setEntreeSearched] = useState('');
     const [averages, setAverages] = useState();
 
     const fetchByZip = async () => {
-        const data = await fetch ('https://tipped-server-app.herokuapp.com/api/getPayByZipAndEntree/'+zipCodeSearched+"/"+entreeSearched);
+        const data = await fetch ('https://tipped-server-app.herokuapp.com/api/getPayByZipAndEntree/'+zipCodeSearched+"/"+entreeSearched        , {
+            method: 'GET',
+            headers:{
+                'Authorization': 'Bearer ' + props.token,
+            },
+        }
+        );
         const zipData = await data.json();
         let average = zipData["average"];
         console.log(average);

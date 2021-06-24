@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
+import useToken from "./useToken";
 
-function Stats () {
+function Stats (props) {
     
     useEffect(() => {
         fetchTopFive();
@@ -11,7 +12,14 @@ function Stats () {
     const [payEntree, setPayEntree] = useState([]);
     
     const fetchTopFive = async () => {
-        const data = await fetch ('https://tipped-server-app.herokuapp.com/api/getTopFiveZips');
+        const data = await fetch ('https://tipped-server-app.herokuapp.com/api/getTopFiveZips'
+        , {
+            method: 'GET',
+            headers:{
+                'Authorization': 'Bearer ' + props.token,
+            },
+        }
+        );
         const topZips = await data.json();
         let zipArray = [];
         Array.from(topZips).forEach(item => {
@@ -21,7 +29,13 @@ function Stats () {
     }
 
     const fetchPayByEntree = async () => {
-        const data = await fetch ('https://tipped-server-app.herokuapp.com/api/getAllPayByEntree');
+        const data = await fetch ('https://tipped-server-app.herokuapp.com/api/getAllPayByEntree', {
+            method: 'GET',
+            headers:{
+                'Authorization': 'Bearer ' + props.token,
+            },
+        }
+        );
         const payByEntree = await data.json();
         let entreeArray = [];
         Array.from(payByEntree).forEach(item => {

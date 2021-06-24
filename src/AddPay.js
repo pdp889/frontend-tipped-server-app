@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 
 
-function AddPay(){
+function AddPay(props){
     
     useEffect(() => {
         fetchItems()
@@ -17,7 +17,13 @@ function AddPay(){
 
 
     const fetchItems = async () => {
-        const data = await fetch ('https://tipped-server-app.herokuapp.com/api/createPay');
+        const data = await fetch ('https://tipped-server-app.herokuapp.com/api/createPay'        , {
+            method: 'GET',
+            headers:{
+                'Authorization': 'Bearer ' + props.token,
+            },
+        }
+        );
         const dataReturn = await data.json();
         setTitle(dataReturn.title);
         let restaurantObjs = [];
@@ -31,7 +37,8 @@ function AddPay(){
     const sendData = () => {
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + props.token },
             body: JSON.stringify({ hourly_pay: hourlyPay, weekly_tips: weeklyTips, weekly_hours: weeklyHours, restaurant: restaurant})
         }
 

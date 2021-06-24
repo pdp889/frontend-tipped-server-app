@@ -3,7 +3,7 @@ import AddRestaurant from "./AddRestaurant";
 import React, {useState, useEffect} from "react"
 
 
-function AddRecord () {
+function AddRecord (props) {
     
     const [newRestaurant, setNewRestaurant] = useState(0);
 
@@ -13,8 +13,8 @@ function AddRecord () {
 
     return (
         <div>
-            <AddPay  />
-            <AddRestaurant setNewRestaurant={update}/>
+            <AddPay  token={props.token}/>
+            <AddRestaurant setNewRestaurant={update} token={props.token}/>
         </div>
     )
 }

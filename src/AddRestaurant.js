@@ -14,7 +14,13 @@ function AddRestaurant(props){
     const [errors, setErrors] = useState(null);
 
     const fetchFormName = async () => {
-        const data = await fetch ('https://tipped-server-app.herokuapp.com/api/createRestaurant');
+        const data = await fetch ('https://tipped-server-app.herokuapp.com/api/createRestaurant', {
+            method: 'GET',
+            headers:{
+                'Authorization': 'Bearer ' + props.token,
+            },
+        }
+        );
         const dataReturn = await data.json();
         setTitle(dataReturn.title);
     }
@@ -22,7 +28,7 @@ function AddRestaurant(props){
     const sendData = () => {
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json','Authorization': 'Bearer ' + props.token, },
             body: JSON.stringify({ zip_code: zipCode, name: name, entree_price: entree})
         }
 

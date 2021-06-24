@@ -1,7 +1,12 @@
 import "./Header.css";
 import {Link} from "react-router-dom"
 
-function Header () {
+function Header (props) {
+
+    const logOut = () => {
+        sessionStorage.clear();
+        props.setToken('');
+    }
 
     return(
         <div className="header">
@@ -25,7 +30,7 @@ function Header () {
                     Search Stats  
                 </div>
             </Link>
-            
+            <button onClick={logOut}>Log out</button>
         </div>
     )
 
