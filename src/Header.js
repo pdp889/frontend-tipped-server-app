@@ -30,6 +30,11 @@ function Header (props) {
                     Search Stats  
                 </div>
             </Link>
+            <Link to="/myRecords">
+                <div>
+                    My Records
+                </div>
+            </Link>
             <button onClick={logOut}>Log out</button>
         </div>
     )

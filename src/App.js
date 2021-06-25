@@ -7,6 +7,7 @@ import Stats from "./Stats";
 import Login from "./LoginPage"
 import useToken from "./useToken";
 import SignUp from "./signUp";
+import MyRecord from "./MyRecords";
 
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
         )} />
         <Route path="/stats-search" exact render={(props) => (
          <StatSearch token={token}/>
+        )} />
+        <Route path="/myRecords" exact render={(props) => (
+         <MyRecord token={token}/>
         )} />
       </Switch>
     </BrowserRouter>
