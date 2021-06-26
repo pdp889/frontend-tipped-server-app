@@ -1,8 +1,9 @@
 import "./PayRecordCard.css";
+import { useState } from "react";
 
 export default function PayRecordCard (props){
-    
-    const sendData = () => {
+
+    const sendDelete = () => {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',
@@ -28,17 +29,21 @@ export default function PayRecordCard (props){
         })
     }
 
+    function increase () {
+        props.increaseUpdateCount(props.value);
+    }
+
     return (
-    <div>
-        <div className="card" key={props.index}>
+    <div className="card" >
+        <div key={props.index}>
             <p>Pay Record Id: {props.value[0]}</p>
             <p>Hourly Pay: {props.value[1]}</p>
             <p>Weekly Tips: {props.value[2]}</p>
             <p>Weekly Hours: {props.value[3]}</p>
-            <p>Restaurant: {props.value[4]}</p>
+            <p>Restaurant: {props.value[6]}</p>
         </div>
-        <button onClick={sendData}>Delete</button>
-        <button>Update</button>
+        <button onClick={sendDelete}>Delete</button>
+        <button onClick={increase}>Update</button>
     </div>
     )
 }
