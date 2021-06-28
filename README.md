@@ -1,3 +1,9 @@
+# This project is created using React, Express, Node, and MongoDB. The back-end can be found at https://tipped-server-app.herokuapp.com/.
+
+This project was made to practice web development skills. It is an app for pay comparison for servers in the Omaha area. Users can add (or update or delete) their pay records for a week at a specific restaurant. The program computes averages per zip code and per entree price, so that a server can determine if they should look for work in a different zip code or a different caliber restaurant. Additionally, the program scrapes postjobfree.com (as there TOS do not ban scraping as of 6/28/2021) for jobs listings and displays the average pay per the zip code of the job.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
