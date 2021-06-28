@@ -1,5 +1,4 @@
-import "./PayRecordCard.css";
-import { useState } from "react";
+import "./style/PayRecordCard.css";
 
 export default function PayRecordCard (props){
 

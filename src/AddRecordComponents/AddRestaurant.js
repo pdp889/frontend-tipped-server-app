@@ -4,7 +4,7 @@ import React, {useState, useEffect} from "react"
 function AddRestaurant(props){
     
     useEffect(() => {
-        fetchFormName()
+        fetchFormNameAndZips()
     }, []);
     
     const [title, setTitle] = useState('');
@@ -14,7 +14,8 @@ function AddRestaurant(props){
     const [entree, setEntree] = useState(1);
     const [errors, setErrors] = useState(null);
 
-    const fetchFormName = async () => {
+    // This function retrieves the information to populate the new restaurant form//
+    const fetchFormNameAndZips = async () => {
         const data = await fetch ('https://tipped-server-app.herokuapp.com/api/createRestaurant', {
             method: 'GET',
             headers:{
@@ -28,6 +29,7 @@ function AddRestaurant(props){
         setTitle(dataReturn.title);
     }
 
+    // This function sends the information to create a new restaurant //
     const sendData = () => {
         const requestOptions = {
             method: 'POST',

@@ -1,19 +1,20 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Header from "./Header";
-import AddRecord from "./AddRecord";
-import StatSearch from "./StatSearch";
-import Jobs from "./Jobs";
-import Stats from "./Stats";
-import Login from "./LoginPage"
-import useToken from "./useToken";
-import SignUp from "./signUp";
-import MyRecord from "./MyRecords";
+import Header from "./HeaderComponents/Header";
+import AddRecord from "./AddRecordComponents/AddRecord";
+import StatSearch from "./StatsComponents/StatSearch";
+import Jobs from "./JobComponents/Jobs";
+import Home from "./Home";
+import Login from "./AuthComponents/LoginPage"
+import useToken from "./AuthComponents/useToken";
+import SignUp from "./AuthComponents/signUp";
+import MyRecord from "./MyRecordsComponents/MyRecords";
 
 
 function App() {
 
   const { token, setToken } = useToken();
 
+  //If a user is not logged in (i.e. no token), the user cannot view anything besides the login and sign up links
   if(!token) {
     return (
     <div>
@@ -29,7 +30,7 @@ function App() {
       <Header setToken={setToken}/>
       <Switch>
         <Route path="/" exact render={(props) => (
-         <Stats token={token}/>
+         <Home token={token}/>
         )} />
         <Route path="/addRecord" exact render={(props) => (
          <AddRecord token={token}/>

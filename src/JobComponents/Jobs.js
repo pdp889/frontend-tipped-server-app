@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import JobCard from "./JobCard"
-import ('./Jobs.css');
+import ('./style/Jobs.css');
 
 function Jobs (props) {
     
@@ -10,6 +10,7 @@ function Jobs (props) {
         fetchItems();
     },[]);
 
+    // This function fetches the list of jobs and averages from the API, and sets allJobs equal to an arrayed version of the results.
     const fetchItems = async () => {
         const data = await fetch ('https://tipped-server-app.herokuapp.com/api/scraper', {
             method: 'GET',

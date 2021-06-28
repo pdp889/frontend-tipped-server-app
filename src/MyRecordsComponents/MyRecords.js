@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PayRecordCard from "./PayRecordCard";
 import UpdateBox from "./UpdateBox";
-import "./MyRecords.css";
+import "./style/MyRecords.css";
 
 export default function MyRecord (props) {
     
@@ -14,6 +14,7 @@ export default function MyRecord (props) {
         fetchItems();
     },[deleteCount, updateValue]);
 
+    //This method is used to trigger a re-rendering upon a delete.
     const increaseDeleteCount = () => {
         setdeleteCount(deleteCount+1);
     }
@@ -22,18 +23,17 @@ export default function MyRecord (props) {
         setUpdateValue([]);
     }
 
-    function increaseUpdateCount (value) {
+    // This method checks if the value id from the update-button-click is the same as the presently displayed update value.
+    function changeUpdateValue (value) {
         console.log(updateValue[0]);
         console.log(value[0]);
         if (updateValue[0] != value[0]){
-            console.log('changed');
             setUpdateValue(value)
         } else {
             setUpdateValue([])
-            console.log('reset');
         }
     }
-    
+    // This method fetches a list of all restaurants and all pay records for the logged-in user, and sets the value of the user's records to allRecords
     const fetchItems = async () => {
         const data = await fetch ('https://tipped-server-app.herokuapp.com/api/getRestaurants', {
             method: 'GET',
@@ -71,17 +71,14 @@ export default function MyRecord (props) {
         setAllRecords(recordObjs);
     }
 
-
-
-
-
+    //if there is no update value, the update box is not displayed. if there is an update value, the update box is displayed along with the record cards.
     if (!updateValue[0]){
     return(
         <div className="myRecordsContainer">
             <div>
                 <h1>Current Records</h1>
                 {allRecords.map((value, index) => {
-                    return <PayRecordCard index={index} value={value} token={props.token} increaseDeleteCount={increaseDeleteCount} increaseUpdateCount={increaseUpdateCount}/>
+                    return <PayRecordCard index={index} value={value} token={props.token} increaseDeleteCount={increaseDeleteCount} increaseUpdateCount={changeUpdateValue}/>
                 })}
             </div>
         </div>

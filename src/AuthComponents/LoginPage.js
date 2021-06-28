@@ -1,33 +1,35 @@
 import React, { useState } from 'react';
 
-
-async function signUser(credentials) {
- return fetch('https://tipped-server-app.herokuapp.com/api/createNewUser', {
-   method: 'POST',
-   headers: {
-     'Content-Type': 'application/json'
-   },
-   body: JSON.stringify(credentials)
- })
-   .then(data => data.json())
+// This is a helper function to log in a user. It is called in the handleSubmit function when a user clicks log in
+async function loginUser(credentials) {
+  return fetch('https://tipped-server-app.herokuapp.com/api/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(credentials)
+  })
+  .then(data => data.json())
+  .catch(err => console.log(err));
 }
 
-export default function SignUp({ setToken }) {
+export default function Login(props) {
+  
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = await signUser({
+    const token = await loginUser({
       username,
       password
     });
-    setToken(token);
+    props.setToken(token);
   }
 
   return(
       <div>
-          <h1>Sign up</h1>
+          <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <label>
           <p>Username</p>

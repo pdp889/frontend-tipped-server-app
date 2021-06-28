@@ -15,7 +15,7 @@ function AddPay(props){
     const [allRestaurants, setAllRestaurants] = useState([]);
     const [errors, setErrors] = useState([]);
 
-
+    // This function retrieves the information to populate the new pay form//
     const fetchItems = async () => {
         const data = await fetch ('https://tipped-server-app.herokuapp.com/api/createPay'        , {
             method: 'GET',
@@ -34,6 +34,7 @@ function AddPay(props){
         setAllRestaurants(restaurantObjs);
     }
 
+    // This function sends the information to create a new pay record //
     const sendData = () => {
         const requestOptions = {
             method: 'POST',
@@ -45,7 +46,7 @@ function AddPay(props){
         fetch('https://tipped-server-app.herokuapp.com/api/createPay', requestOptions)
         .then(response => response.json())
         .then(data => {
-            if(data.errors != undefined){
+            if(data.errors !== undefined){
                 let array = Array.from(data.errors);
                 let errorArray = [];
                 array.forEach(item => {

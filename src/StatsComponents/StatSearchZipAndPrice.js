@@ -1,13 +1,15 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 
 
-function StatSearchZip (props) {
+function StatSearchZipAndPrice (props) {
 
     const [zipCodeSearched, setZipCodeSearched] = useState('');
+    const [entreeSearched, setEntreeSearched] = useState('');
     const [averages, setAverages] = useState();
 
+    //This method fetches the average based on both the zip code and entree searched from the API.
     const fetchByZip = async () => {
-        const data = await fetch ('https://tipped-server-app.herokuapp.com/api/getPayByZip/'+zipCodeSearched        , {
+        const data = await fetch ('https://tipped-server-app.herokuapp.com/api/getPayByZipAndEntree/'+zipCodeSearched+"/"+entreeSearched        , {
             method: 'GET',
             headers:{
                 'Authorization': 'Bearer ' + props.token,
@@ -44,7 +46,16 @@ function StatSearchZip (props) {
                         maxLength="5"
                         value={zipCodeSearched}
                     />
-                    <input type="submit" value="search by zip" />
+                    <input
+                        onChange={e => setEntreeSearched(e.target.value)}
+                        type="text"
+                        name="entree"
+                        placeholder="entree: 1-5"
+                        className="fill-in"
+                        autoComplete="off"
+                        value={entreeSearched}
+                    />
+                    <input type="submit" value="search by zip and entree price" />
                 </form>
             </div>
             <div>
@@ -56,4 +67,4 @@ function StatSearchZip (props) {
     );
 }
 
-export default StatSearchZip
+export default StatSearchZipAndPrice

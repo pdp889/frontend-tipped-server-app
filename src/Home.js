@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react"
-import useToken from "./useToken";
 
 function Stats (props) {
     
@@ -11,6 +10,7 @@ function Stats (props) {
     const [top5, setTop5] = useState([]);
     const [payEntree, setPayEntree] = useState([]);
     
+    //This method fetches the summary top 5 zip code stats from the API.
     const fetchTopFive = async () => {
         const data = await fetch ('https://tipped-server-app.herokuapp.com/api/getTopFiveZips'
         , {
@@ -28,6 +28,7 @@ function Stats (props) {
         setTop5(zipArray);
     }
 
+    //This method fetches the summary averages per entree category from the API.
     const fetchPayByEntree = async () => {
         const data = await fetch ('https://tipped-server-app.herokuapp.com/api/getAllPayByEntree', {
             method: 'GET',

@@ -1,7 +1,10 @@
-import ('./Jobs.css')
+import ('./style/Jobs.css')
 export default function PayRecordCard (props){
 
-    if (props.value[4] != 'unknown') {
+    // This checks if the value of the average pay for the card's zip code is unknown or not. 
+    // If it is unknown, the card is rendered without the average pay statement.
+
+    if (props.value[4] !== 'unknown') {
         return (
             <div className="card" >
                 <div key={props.index}>
