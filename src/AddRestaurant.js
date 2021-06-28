@@ -8,7 +8,8 @@ function AddRestaurant(props){
     }, []);
     
     const [title, setTitle] = useState('');
-    const [zipCode, setZipCode] = useState('');
+    const [zips, setZips] = useState([]);
+    const [zipCode, setZipCode] = useState('51501');
     const [name, setName] = useState('');
     const [entree, setEntree] = useState(1);
     const [errors, setErrors] = useState(null);
@@ -22,6 +23,8 @@ function AddRestaurant(props){
         }
         );
         const dataReturn = await data.json();
+        let sortedZipArray = dataReturn.zips.sort(function(a, b) {return (a < b) ? -1 : (a > b) ? 1 : 0;});
+        setZips(sortedZipArray);
         setTitle(dataReturn.title);
     }
 
@@ -56,10 +59,15 @@ function AddRestaurant(props){
         })
     }
 
+    const onSelectChange = (event) => {
+        setZipCode(event.target.value);
+        
+    }
 
     const onSubmitTask = (event) => {
+        event.preventDefault();
         sendData();
-
+        props.setNewRestaurant();
     }
 
     return (
@@ -67,17 +75,11 @@ function AddRestaurant(props){
             <div className="fill-in-section">
                 <form onSubmit ={e => {onSubmitTask(e)}}>
                     <h1 className="section-header">{title}</h1>
-                    <input
-                        onChange={e => setZipCode(e.target.value)}
-                        type="text"
-                        name="zip"
-                        placeholder="zip code"
-                        className="fill-in"
-                        autoComplete="off"
-                        minLength="5"
-                        maxLength="5"
-                        value={zipCode}
-                    />
+                    <select onChange={onSelectChange}>
+                        {zips.map((value, index) => {
+                            return <option key={index} value={value}>{value}</option>
+                        })}
+                    </select>
                     <input
                         onChange={e => setName(e.target.value)}
                         type="text"

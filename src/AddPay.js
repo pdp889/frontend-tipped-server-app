@@ -5,7 +5,7 @@ function AddPay(props){
     
     useEffect(() => {
         fetchItems()
-    },[]);
+    },[props]);
     
     const [title, setTitle] = useState('');
     const [hourlyPay, setHourlyPay] = useState('');
