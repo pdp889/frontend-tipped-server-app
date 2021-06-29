@@ -47,12 +47,12 @@ function Stats (props) {
 
     return(
         <div className="d-flex justify-content-center bg-light full-height">
-            <div className="w-50">
+            <div className="w-50 padding-10-px">
                 <h1>Welcome to the Omaha Server App</h1>
     
             </div>
             <div className="w-50">
-                <div className="card">
+                <div className="card padding-10-px">
                     <h3 className="card-title">Top 5 Zip Codes for Total Hourly Compensation</h3>
                     <div className="card-body">
                         {top5.map((value, index) => {
@@ -62,7 +62,7 @@ function Stats (props) {
                         })}
                     </div>
                 </div>
-                <div className="card">
+                <div className="card padding-10-px">
                     <h3 className="card-title">Total Hourly Compensation by Restaurant Price Rating</h3>
                     <div className="card-body">
                         {payEntree.map((value, index) => {

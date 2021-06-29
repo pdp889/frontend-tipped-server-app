@@ -33,7 +33,7 @@ export default function PayRecordCard (props){
     }
 
     return (
-    <div className="card" >
+    <div className="card padding-10-px" >
         <div className='card-body' key={props.index}>
             <p>Pay Record Id: {props.value[0]}</p>
             <p>Hourly Pay: {props.value[1]}</p>

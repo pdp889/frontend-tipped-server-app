@@ -6,7 +6,7 @@ export default function PayRecordCard (props){
 
     if (props.value[4] !== 'unknown') {
         return (
-            <div className="card" >
+            <div className="card padding-10-px" >
                 <div key={props.index}>
                     <p>Title: {props.value[0]}</p>
                     <p>Restaurant: {props.value[1]}</p>
@@ -18,7 +18,7 @@ export default function PayRecordCard (props){
             )
     } else {
         return (
-            <div className="card" >
+            <div className="card padding-10-px" >
                 <div key={props.index}>
                     <p>Title: {props.value[0]}</p>
                     <p>Restaurant: {props.value[1]}</p>

@@ -73,7 +73,7 @@ function AddRestaurant(props){
     }
 
     return (
-        <div className="card w-50 h-75">
+        <div className="card w-50 h-75 padding-10-px">
             <div>
                 <form onSubmit ={e => {onSubmitTask(e)}}>
                     <h1 className="section-header">{title}</h1>

@@ -31,7 +31,7 @@ function StatSearchZipAndPrice (props) {
     }
     if (averages === 'unknown'){
         return (
-            <div className='card w-50 h-75'>
+            <div className='card w-50 h-75 padding-10-px'>
                 <div >
                     <form onSubmit ={e => {onSubmitTask(e)}}>
                         <h1 className="section-header">Search By Zip and Restaurant Price Rating</h1>
@@ -65,7 +65,7 @@ function StatSearchZipAndPrice (props) {
         )
     } else if (averages){
         return (
-            <div className='card w-50 h-75'>
+            <div className='card w-50 h-75 padding-10-px'>
                 <div >
                     <form onSubmit ={e => {onSubmitTask(e)}}>
                         <h1 className="section-header">Search By Zip and Restaurant Price Rating</h1>
@@ -99,7 +99,7 @@ function StatSearchZipAndPrice (props) {
         )
     } else {
         return (
-            <div className='card w-50 h-75'>
+            <div className='card w-50 h-75 padding-10-px'>
                 <div >
                     <form onSubmit ={e => {onSubmitTask(e)}}>
                         <h1 className="section-header">Search By Zip and Restaurant Price Rating</h1>

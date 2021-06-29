@@ -32,7 +32,7 @@ function Jobs (props) {
 
     return(
             <div className="d-flex justify-content-center bg-light">
-                <div className="w-50">
+                <div className="w-50 padding-10-px">
                     <h1>Now Hiring - 10 great jobs!</h1>
                     <p>These jobs are hiring now!</p>
                 </div>

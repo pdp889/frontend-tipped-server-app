@@ -32,7 +32,7 @@ export default function StatSearchZip (props) {
 
     if (averages === 'unknown'){
         return (
-            <div className='card w-50 h-75'>
+            <div className='card w-50 h-75 padding-10-px'>
                 <div>
                     <form onSubmit ={e => {onSubmitTask(e)}}>
                         <h1 className="section-header">Search By Zip</h1>
@@ -59,7 +59,7 @@ export default function StatSearchZip (props) {
         );
     } else if (averages){
         return (
-            <div className='card w-50 h-75'>
+            <div className='card w-50 h-75 padding-10-px'>
                 <div>
                     <form onSubmit ={e => {onSubmitTask(e)}}>
                         <h1 className="section-header">Search By Zip</h1>
@@ -88,7 +88,7 @@ export default function StatSearchZip (props) {
     
     else {
         return (
-            <div className='card w-50 h-75'>
+            <div className='card w-50 h-75 padding-10-px'>
                 <div>
                     <form onSubmit ={e => {onSubmitTask(e)}}>
                         <h1 className="section-header">Search By Zip</h1>

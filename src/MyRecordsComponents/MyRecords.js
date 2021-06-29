@@ -75,7 +75,7 @@ export default function MyRecord (props) {
     if (!updateValue[0]){
     return(
         <div className="d-flex flex-row bg-light">
-                <div className="w-50">
+                <div className="w-50 padding-10-px">
 
                 <h1>Current Records</h1>
                 <p>These are all of your current records in our database, feel free to update or delete any of them</p>
