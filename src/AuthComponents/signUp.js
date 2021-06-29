@@ -16,6 +16,7 @@ async function signUser(credentials) {
 export default function SignUp(props) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
+  const [message, setMessage] = useState('');
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -23,25 +24,35 @@ export default function SignUp(props) {
       username,
       password
     });
+    if (token.error){
+      setMessage(token.error);
+    } 
     props.setToken(token);
+
   }
 
+
   return(
-      <div>
-          <h1>Sign up</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input type="text" onChange={e => setUserName(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input type="password" onChange={e => setPassword(e.target.value)} />
-        </label>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+    <div className="login-signup">
+      <div className='d-flex justify-content-between'>
+      <h3>Sign Up</h3>
+      <button className="btn btn-outline-link" onClick={props.toggle}>Back</button>
     </div>
-  )
+    <form onSubmit={handleSubmit}>
+      <div className='form-group'>
+        <label htmlFor='username'>Username</label>
+          <input type="text" name='username' className='form-control' onChange={e => setUserName(e.target.value)} />
+        <label htmlFor='password'>Password</label>
+          <input type="password" className='form-control' onChange={e => setPassword(e.target.value)} />
+      </div>
+      
+      <div className='login-signup-button'>
+        <button className="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+    <div className="text-danger">
+      {message}
+    </div>
+  </div>
+)
 }

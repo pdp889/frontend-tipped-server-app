@@ -46,25 +46,34 @@ function Stats (props) {
     }
 
     return(
-        <div className="stats-page">
-            <h1>Welcome to the Tipped Server App</h1>
-            <h2>Are you being underpaid?</h2>
-            <div>
-                <h3>Top 5 Zip codes by comp</h3>
-                {top5.map((value, index) => {
-                    return <div key={index}>
-                        Zip: {value[0]} | Average: {value[1]}
-                    </div>
-                })}
+        <div className="d-flex justify-content-center bg-light full-height">
+            <div className="w-50">
+                <h1>Welcome to the Omaha Server App</h1>
+    
             </div>
-            <div>
-                <h3>Average Pay by Entree Value Rating</h3>
-                {payEntree.map((value, index) => {
-                    return <div key={index}>
-                        Entree Price: {value[0]} | Average: {value[1]}
+            <div className="w-50">
+                <div className="card">
+                    <h3 className="card-title">Top 5 Zip Codes for Total Hourly Compensation</h3>
+                    <div className="card-body">
+                        {top5.map((value, index) => {
+                            return <div key={index}>
+                                {value[0]} | Average Pay: ${value[1]}
+                            </div>
+                        })}
                     </div>
-                })}
+                </div>
+                <div className="card">
+                    <h3 className="card-title">Total Hourly Compensation by Restaurant Price Rating</h3>
+                    <div className="card-body">
+                        {payEntree.map((value, index) => {
+                            return <div key={index}>
+                                Price Rating: {value[0]} | Average Pay: ${value[1]}
+                            </div>
+                        })}
+                    </div>
+                </div>
             </div>
+            
         </div>
         
     )

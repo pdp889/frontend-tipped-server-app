@@ -29,42 +29,106 @@ function StatSearchZipAndPrice (props) {
         event.preventDefault();
         fetchByZip();
     }
-
-    return (
-        <div>
-            <div className="fill-in-section">
-                <form onSubmit ={e => {onSubmitTask(e)}}>
-                    <h1 className="section-header">Search By Zip</h1>
-                    <input
-                        onChange={e => setZipCodeSearched(e.target.value)}
-                        type="text"
-                        name="zip"
-                        placeholder="zip code"
-                        className="fill-in"
-                        autoComplete="off"
-                        minLength="5"
-                        maxLength="5"
-                        value={zipCodeSearched}
-                    />
-                    <input
-                        onChange={e => setEntreeSearched(e.target.value)}
-                        type="text"
-                        name="entree"
-                        placeholder="entree: 1-5"
-                        className="fill-in"
-                        autoComplete="off"
-                        value={entreeSearched}
-                    />
-                    <input type="submit" value="search by zip and entree price" />
-                </form>
+    if (averages === 'unknown'){
+        return (
+            <div className='card w-50 h-75'>
+                <div >
+                    <form onSubmit ={e => {onSubmitTask(e)}}>
+                        <h1 className="section-header">Search By Zip and Restaurant Price Rating</h1>
+                        <label htmlFor='Zip'>Zip</label>
+                        <input
+                            onChange={e => setZipCodeSearched(e.target.value)}
+                            type="text"
+                            name="zip"
+                            className="form-control"
+                            autoComplete="off"
+                            minLength="5"
+                            maxLength="5"
+                            value={zipCodeSearched}
+                        />
+                        <label htmlFor='entree'>Restaurant Price Rating (1-5)</label>
+                        <input
+                            onChange={e => setEntreeSearched(e.target.value)}
+                            type="text"
+                            name="entree"
+                            className="form-control"
+                            autoComplete="off"
+                            value={entreeSearched}
+                        />
+                        <input type="submit"  className='btn btn-primary search-button' value="Search by Zip and Restaurant Price Rating" />
+                    </form>
+                </div>
+                <div className='text-info'>
+                    No records from this zip code and restaurant price rating combination.
+                </div>
             </div>
-            <div>
-                {averages}
+        )
+    } else if (averages){
+        return (
+            <div className='card w-50 h-75'>
+                <div >
+                    <form onSubmit ={e => {onSubmitTask(e)}}>
+                        <h1 className="section-header">Search By Zip and Restaurant Price Rating</h1>
+                        <label htmlFor='Zip'>Zip</label>
+                        <input
+                            onChange={e => setZipCodeSearched(e.target.value)}
+                            type="text"
+                            name="zip"
+                            className="form-control"
+                            autoComplete="off"
+                            minLength="5"
+                            maxLength="5"
+                            value={zipCodeSearched}
+                        />
+                        <label htmlFor='entree'>Restaurant Price Rating (1-5)</label>
+                        <input
+                            onChange={e => setEntreeSearched(e.target.value)}
+                            type="text"
+                            name="entree"
+                            className="form-control"
+                            autoComplete="off"
+                            value={entreeSearched}
+                        />
+                        <input type="submit"  className='btn btn-primary search-button' value="Search by Zip and Restaurant Price Rating" />
+                    </form>
+                </div>
+                <div className='text-info'>
+                    Result found: ${averages} total compensation per hour
+                </div>
             </div>
-        </div>
+        )
+    } else {
+        return (
+            <div className='card w-50 h-75'>
+                <div >
+                    <form onSubmit ={e => {onSubmitTask(e)}}>
+                        <h1 className="section-header">Search By Zip and Restaurant Price Rating</h1>
+                        <label htmlFor='Zip'>Zip</label>
+                        <input
+                            onChange={e => setZipCodeSearched(e.target.value)}
+                            type="text"
+                            name="zip"
+                            className="form-control"
+                            autoComplete="off"
+                            minLength="5"
+                            maxLength="5"
+                            value={zipCodeSearched}
+                        />
+                        <label htmlFor='entree'>Restaurant Price Rating (1-5)</label>
+                        <input
+                            onChange={e => setEntreeSearched(e.target.value)}
+                            type="text"
+                            name="entree"
+                            className="form-control"
+                            autoComplete="off"
+                            value={entreeSearched}
+                        />
+                        <input type="submit"  className='btn btn-primary search-button' value="Search by Zip and Restaurant Price Rating" />
+                    </form>
+                </div>
+            </div>
+        )
 
-        
-    );
+    }
 }
-
 export default StatSearchZipAndPrice

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-
+import './record.css'
 
 function AddPay(props){
     
@@ -11,7 +11,7 @@ function AddPay(props){
     const [hourlyPay, setHourlyPay] = useState('');
     const [weeklyTips, setWeeklyTips] = useState('');
     const [weeklyHours, setWeeklyHours] = useState('');
-    const [restaurant, setRestaurant] = useState('60d3a9fecc29bf0004f808d7');
+    const [restaurant, setRestaurant] = useState('');
     const [allRestaurants, setAllRestaurants] = useState([]);
     const [errors, setErrors] = useState([]);
 
@@ -32,6 +32,7 @@ function AddPay(props){
             restaurantObjs.push(arrayedItem);
         })
         setAllRestaurants(restaurantObjs);
+        setRestaurant(restaurantObjs[0][0]);
     }
 
     // This function sends the information to create a new pay record //
@@ -77,46 +78,47 @@ function AddPay(props){
     }
 
     return (
-        <div>
-            <div className="fill-in-section">
+        <div class="card w-50 h-75">
+            <div>
                 <form onSubmit ={e => {onSubmitTask(e)}}>
-                    <h1 className="section-header">{title}</h1>
+                    <h1>{title}</h1>
+                    <label htmlFor='hourly'>Hourly</label>
                     <input
                         onChange={e => setHourlyPay(e.target.value)}
                         type="number"
                         name="hourly"
-                        placeholder="hourly pay"
-                        className="fill-in"
+                        className="form-control"
                         autoComplete="off"
                         min="1"
                         value={hourlyPay}
                     />
+                    <label htmlFor='weekly tips'>Weekly Tips</label>
                     <input
                         onChange={e => setWeeklyTips(e.target.value)}
                         type="number"
                         name="weekly tips"
-                        placeholder="weekly tips"
-                        className="fill-in"
+                        className="form-control"
                         autoComplete="off"
                         min="1"
                         value={weeklyTips}
                     />
+                    <label htmlFor='weekly hours'>Weekly Hours</label>
                     <input
                         onChange={e => setWeeklyHours(e.target.value)}
                         type="number"
                         name="weekly hours"
-                        placeholder="weekly hours"
-                        className="fill-in"
+                        className="form-control"
                         autoComplete="off"
                         min="1"
                         value={weeklyHours}
                     />
-                    <select onChange={onSelectChange}>
+                    <label htmlFor='restaurant'>Restaurant</label>
+                    <select name="restaurant" className="form-select" onChange={onSelectChange}>
                         {allRestaurants.map((value, index) => {
                             return <option key={index} value={value[0]}>{value[2]} | {value[1]}</option>
                         })}
                     </select>
-                    <input type="submit" value="Add Pay Record" />
+                    <input type="submit" className="btn btn-primary record-submit" value="Add Pay Record" />
                 </form>
             </div>
             <div>

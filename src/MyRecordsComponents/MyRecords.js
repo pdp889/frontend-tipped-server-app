@@ -74,25 +74,25 @@ export default function MyRecord (props) {
     //if there is no update value, the update box is not displayed. if there is an update value, the update box is displayed along with the record cards.
     if (!updateValue[0]){
     return(
-        <div className="myRecordsContainer">
-            <div>
+        <div className="d-flex flex-row bg-light">
+                <div className="w-50">
+
                 <h1>Current Records</h1>
-                {allRecords.map((value, index) => {
-                    return <PayRecordCard index={index} value={value} token={props.token} increaseDeleteCount={increaseDeleteCount} increaseUpdateCount={changeUpdateValue}/>
-                })}
-            </div>
+                <p>These are all of your current records in our database, feel free to update or delete any of them</p>
+                </div>
+                <div className='w-50'>
+                    {allRecords.map((value, index) => {
+                        return <PayRecordCard index={index} value={value} token={props.token} increaseDeleteCount={increaseDeleteCount} increaseUpdateCount={changeUpdateValue}/>
+                    })}
+                </div>
+
         </div>
 
     )
     } else {
         return(
-            <div className="myRecordsContainer">
-                <div>
-                    <h1>Update box</h1>
-                    <div>
-                        <UpdateBox value={updateValue} token={props.token} resetUpdateValue={resetUpdateValue}/>
-                    </div>
-                </div>
+            <div>
+                <UpdateBox value={updateValue} token={props.token} resetUpdateValue={resetUpdateValue}/>
             </div>
     
         )

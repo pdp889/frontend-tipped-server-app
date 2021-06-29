@@ -68,56 +68,66 @@ export default function UpdateBox (props) {
     }
 
     return (
-        <div>
-            <h1>Original</h1>
-            <div className="card" >
-                <p>Pay Record Id: {props.value[0]}</p>
-                <p>Hourly Pay: {props.value[1]}</p>
-                <p>Weekly Tips: {props.value[2]}</p>
-                <p>Weekly Hours: {props.value[3]}</p>
-                <p>Restaurant: {props.value[6]}</p>
+        <div className="d-flex flex-row bg-light full-height">
+            
+            <div className="card w-50 h-75" >
+            <div className='card-body'>
+                <h1>Original</h1>
+                
+                    <p>Pay Record Id: {props.value[0]}</p>
+                    <p>Hourly Pay: {props.value[1]}</p>
+                    <p>Weekly Tips: {props.value[2]}</p>
+                    <p>Weekly Hours: {props.value[3]}</p>
+                    <p>Restaurant: {props.value[6]}</p>
+                </div>
             </div>
-            <div className="fill-in-section">
+            <div className="card w-50 h-75">
+            <div className='card-body'>
                 <form onSubmit ={e => {onSubmitTask(e)}}>
                     <h1 className="section-header">Update</h1>
+                    <label htmlFor='hourly'>Hourly</label>
                     <input
                         onChange={e => setHourlyPay(e.target.value)}
                         type="number"
                         name="hourly"
-                        placeholder="hourly pay"
-                        className="fill-in"
+                        className="form-control"
                         autoComplete="off"
                         min="1"
                         value={hourlyPay}
                     />
+                    <label htmlFor='weekly tips'>Weekly Tips</label>
                     <input
                         onChange={e => setWeeklyTips(e.target.value)}
                         type="number"
                         name="weekly tips"
-                        placeholder="weekly tips"
-                        className="fill-in"
+                        className="form-control"
                         autoComplete="off"
                         min="1"
                         value={weeklyTips}
                     />
+                    <label htmlFor='weekly hours'>Weekly Hours</label>
                     <input
                         onChange={e => setWeeklyHours(e.target.value)}
                         type="number"
                         name="weekly hours"
-                        placeholder="weekly hours"
-                        className="fill-in"
+                        className="form-control"
                         autoComplete="off"
                         min="1"
                         value={weeklyHours}
                     />
-                    <select onChange={onSelectChange} value={restaurant}>
+                    <label htmlFor='Restaurant'>Restaurant</label>
+                    <select className='form-select' name='restaurant' onChange={onSelectChange} value={restaurant}>
                         {allRestaurants.map((value, index) => {
                             return <option key={index} value={value[0]}>{value[2]} | {value[1]}</option>
                         })}
                     </select>
-                    <input type="submit" value="Change Pay Record" />
+                    <div className="d-flex justify-content-around">
+                    <input type="submit" className='btn btn-primary record-submit' value="Change Pay Record" />
+                    <button className='btn btn-secondary record-submit'onClick={props.resetUpdateValue}>Cancel</button>
+                    </div>
+                    
                 </form>
-                <button onClick={props.resetUpdateValue}>Cancel</button>
+                </div>   
             </div>
         </div>
 

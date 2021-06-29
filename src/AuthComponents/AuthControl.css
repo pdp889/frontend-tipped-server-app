@@ -1,0 +1,14 @@
+.main-login-section {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+.login-signup{
+    padding: 10px;
+}
+
+.login-signup-button{
+    margin-top: 10px;
+}

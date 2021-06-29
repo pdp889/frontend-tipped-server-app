@@ -1,7 +1,8 @@
 import React, {useState} from "react";
+import './stats.css'
 
 
-function StatSearchZip (props) {
+export default function StatSearchZip (props) {
 
     const [zipCodeSearched, setZipCodeSearched] = useState('');
     const [averages, setAverages] = useState();
@@ -29,32 +30,85 @@ function StatSearchZip (props) {
         fetchByZip();
     }
 
-    return (
-        <div>
-            <div className="fill-in-section">
-                <form onSubmit ={e => {onSubmitTask(e)}}>
-                    <h1 className="section-header">Search By Zip</h1>
-                    <input
-                        onChange={e => setZipCodeSearched(e.target.value)}
-                        type="text"
-                        name="zip"
-                        placeholder="zip code"
-                        className="fill-in"
-                        autoComplete="off"
-                        minLength="5"
-                        maxLength="5"
-                        value={zipCodeSearched}
-                    />
-                    <input type="submit" value="search by zip" />
-                </form>
+    if (averages === 'unknown'){
+        return (
+            <div className='card w-50 h-75'>
+                <div>
+                    <form onSubmit ={e => {onSubmitTask(e)}}>
+                        <h1 className="section-header">Search By Zip</h1>
+                        <label htmlFor='zip'>Zip</label>
+                        <input
+                            onChange={e => setZipCodeSearched(e.target.value)}
+                            type="text"
+                            name="zip"
+                            className="form-control"
+                            autoComplete="off"
+                            minLength="5"
+                            maxLength="5"
+                            value={zipCodeSearched}
+                        />
+                        <input type="submit" className='btn btn-primary search-button' value="Search by Zip" />
+                    </form>
+                </div>
+                <div className='text-info'>
+                    No records from this zip code.
+                </div>
             </div>
-            <div>
-                {averages}
+    
+            
+        );
+    } else if (averages){
+        return (
+            <div className='card w-50 h-75'>
+                <div>
+                    <form onSubmit ={e => {onSubmitTask(e)}}>
+                        <h1 className="section-header">Search By Zip</h1>
+                        <label htmlFor='zip'>Zip</label>
+                        <input
+                            onChange={e => setZipCodeSearched(e.target.value)}
+                            type="text"
+                            name="zip"
+                            className="form-control"
+                            autoComplete="off"
+                            minLength="5"
+                            maxLength="5"
+                            value={zipCodeSearched}
+                        />
+                        <input type="submit" className='btn btn-primary search-button' value="Search by Zip" />
+                    </form>
+                </div>
+                <div className='text-info'>
+                    Result found: ${averages} total compensation per hour
+                </div>
             </div>
-        </div>
+    
+            
+        );
+    }
+    
+    else {
+        return (
+            <div className='card w-50 h-75'>
+                <div>
+                    <form onSubmit ={e => {onSubmitTask(e)}}>
+                        <h1 className="section-header">Search By Zip</h1>
+                        <label htmlFor='zip'>Zip</label>
+                        <input
+                            onChange={e => setZipCodeSearched(e.target.value)}
+                            type="text"
+                            name="zip"
+                            className="form-control"
+                            autoComplete="off"
+                            minLength="5"
+                            maxLength="5"
+                            value={zipCodeSearched}
+                        />
+                        <input type="submit" className='btn btn-primary search-button' value="Search by Zip"/>
+                    </form>
+                </div>
+            </div>
+            
+        );
+    }
 
-        
-    );
 }
-
-export default StatSearchZip

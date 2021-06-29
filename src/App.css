@@ -1,0 +1,18 @@
+.log-in-page{
+    background-image: url(./omaha.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 105%;
+}
+
+.log-in-column{
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 50%;
+    align-self: center;
+    min-width: 500px;
+    min-height: 200px;
+}
+
+.full-height{
+    height: 100vh;
+}

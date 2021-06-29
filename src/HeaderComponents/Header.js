@@ -9,33 +9,33 @@ function Header (props) {
     }
 
     return(
-        <div className="header">
+        <div className="d-flex justify-content-around bg-primary align-items-center">
             <Link to="/">
-                <div>
+            <div className="text-white btn btn-primary">
                     Home  
                 </div>
             </Link>
             <Link to="/jobs">
-                <div>
+                <div className="text-white btn btn-primary">
                     View Jobs  
                 </div>
             </Link>
             <Link to="/addRecord">
-                <div>
-                    Add record
+                <div className="text-white btn btn-primary">
+                    Add Record
                 </div>
             </Link>
             <Link to="/stats-search">
-                <div>
+                <div className="text-white btn btn-primary">
                     Search Stats  
                 </div>
             </Link>
             <Link to="/myRecords">
-                <div>
+                <div className="text-white btn btn-primary">
                     My Records
                 </div>
             </Link>
-            <button onClick={logOut}>Log out</button>
+            <button className="text-white btn btn-primary" onClick={logOut}>Log Out</button>
         </div>
     )
 

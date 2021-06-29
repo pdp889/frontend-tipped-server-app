@@ -34,15 +34,19 @@ export default function PayRecordCard (props){
 
     return (
     <div className="card" >
-        <div key={props.index}>
+        <div className='card-body' key={props.index}>
             <p>Pay Record Id: {props.value[0]}</p>
             <p>Hourly Pay: {props.value[1]}</p>
             <p>Weekly Tips: {props.value[2]}</p>
             <p>Weekly Hours: {props.value[3]}</p>
             <p>Restaurant: {props.value[6]}</p>
+            <div className="d-flex justify-content-around">
+                <button className='btn btn-primary' onClick={sendDelete}>Delete</button>
+                <button className='btn btn-primary'onClick={increase}>Update</button>
+            </div>
         </div>
-        <button onClick={sendDelete}>Delete</button>
-        <button onClick={increase}>Update</button>
+
+        
     </div>
     )
 }

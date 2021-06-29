@@ -73,34 +73,35 @@ function AddRestaurant(props){
     }
 
     return (
-        <div>
-            <div className="fill-in-section">
+        <div className="card w-50 h-75">
+            <div>
                 <form onSubmit ={e => {onSubmitTask(e)}}>
                     <h1 className="section-header">{title}</h1>
-                    <select onChange={onSelectChange}>
+                    <label htmlFor='zip'>Zip Code</label>
+                    <select className="form-select" name='zip' onChange={onSelectChange}>
                         {zips.map((value, index) => {
                             return <option key={index} value={value}>{value}</option>
                         })}
                     </select>
+                    <label htmlFor='name'>Name</label>
                     <input
                         onChange={e => setName(e.target.value)}
                         type="text"
                         name="name"
-                        placeholder="restaurant name"
-                        className="fill-in"
+                        className="form-control"
                         autoComplete="off"
                         value={name}
                     />
+                    <label htmlFor='name'>Restaurant Price Rating (1-5)</label>
                     <input
                         onChange={e => setEntree(e.target.value)}
                         type="text"
                         name="entree"
-                        placeholder="entree: 1-5"
-                        className="fill-in"
+                        className="form-control"
                         autoComplete="off"
                         value={entree}
                     />
-                    <input type="submit" value="Add Restaurant" />
+                    <input type="submit" className="btn btn-primary record-submit" value="Add Restaurant" />
                 </form>
             </div>
             <div>

@@ -12,9 +12,9 @@ function AddRecord (props) {
     }
 
     return (
-        <div>
-            <AddPay  token={props.token}/>
+        <div className="d-flex flex-row bg-light full-height">
             <AddRestaurant setNewRestaurant={update} token={props.token}/>
+            <AddPay  token={props.token}/>
         </div>
     )
 }

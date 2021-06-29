@@ -31,14 +31,18 @@ function Jobs (props) {
     }
 
     return(
-        <div className="myJobsContainer">
-            <div>
-                <h1>Now Hiring</h1>
-                {allJobs.map((value, index) => {
-                    return <JobCard index={index} value={value} token={props.token}/>
-                })}
+            <div className="d-flex justify-content-center bg-light">
+                <div className="w-50">
+                    <h1>Now Hiring - 10 great jobs!</h1>
+                    <p>These jobs are hiring now!</p>
+                </div>
+                <div className="w-50">
+                    {allJobs.map((value, index) => {
+                        return <JobCard index={index} value={value} token={props.token}/>
+                    })}
+                </div>
             </div>
-        </div>
+
 
     )
 }
