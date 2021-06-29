@@ -28,7 +28,7 @@ function App() {
 
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={'/frontend-tipped-server-app'}>
       <Header setToken={setToken}/>
       <Switch>
         <Route path="/" exact render={(props) => (
