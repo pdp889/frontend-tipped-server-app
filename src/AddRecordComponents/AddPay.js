@@ -78,7 +78,7 @@ function AddPay(props){
     }
 
     return (
-        <div class="card w-50 h-75 padding-10-px">
+        <div className="card w-50 h-75 padding-10-px">
             <div>
                 <form onSubmit ={e => {onSubmitTask(e)}}>
                     <h1>{title}</h1>
