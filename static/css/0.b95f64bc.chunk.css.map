@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/JobComponents/style/Jobs.css"],"names":[],"mappings":"AAAA,oCACI,oBACI,uCAAiC,CAAjC,+BACJ,CACJ","file":"0.b95f64bc.chunk.css","sourcesContent":["@media screen and (max-width:768px) {\n    #column-mobile-jobs{\n        flex-direction: column !important;\n    }\n}"]}

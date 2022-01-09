@@ -1,30 +1,30 @@
 {
   "files": {
-    "static/css/0.afd7172b.chunk.css": "/frontend-tipped-server-app/static/css/0.afd7172b.chunk.css",
+    "static/css/0.b95f64bc.chunk.css": "/frontend-tipped-server-app/static/css/0.b95f64bc.chunk.css",
     "static/js/0.027c58a3.chunk.js": "/frontend-tipped-server-app/static/js/0.027c58a3.chunk.js",
     "static/js/0.027c58a3.chunk.js.map": "/frontend-tipped-server-app/static/js/0.027c58a3.chunk.js.map",
-    "main.css": "/frontend-tipped-server-app/static/css/main.e8a339cd.chunk.css",
-    "main.js": "/frontend-tipped-server-app/static/js/main.eebdc7df.chunk.js",
-    "main.js.map": "/frontend-tipped-server-app/static/js/main.eebdc7df.chunk.js.map",
-    "runtime-main.js": "/frontend-tipped-server-app/static/js/runtime-main.298bdf69.js",
-    "runtime-main.js.map": "/frontend-tipped-server-app/static/js/runtime-main.298bdf69.js.map",
+    "main.css": "/frontend-tipped-server-app/static/css/main.1b82b97e.chunk.css",
+    "main.js": "/frontend-tipped-server-app/static/js/main.4a5bfdcf.chunk.js",
+    "main.js.map": "/frontend-tipped-server-app/static/js/main.4a5bfdcf.chunk.js.map",
+    "runtime-main.js": "/frontend-tipped-server-app/static/js/runtime-main.e6ce55cc.js",
+    "runtime-main.js.map": "/frontend-tipped-server-app/static/js/runtime-main.e6ce55cc.js.map",
     "static/css/3.7b1c032f.chunk.css": "/frontend-tipped-server-app/static/css/3.7b1c032f.chunk.css",
-    "static/js/3.1ab2db24.chunk.js": "/frontend-tipped-server-app/static/js/3.1ab2db24.chunk.js",
-    "static/js/3.1ab2db24.chunk.js.map": "/frontend-tipped-server-app/static/js/3.1ab2db24.chunk.js.map",
+    "static/js/3.e8d197f3.chunk.js": "/frontend-tipped-server-app/static/js/3.e8d197f3.chunk.js",
+    "static/js/3.e8d197f3.chunk.js.map": "/frontend-tipped-server-app/static/js/3.e8d197f3.chunk.js.map",
     "static/js/4.3fe10ccd.chunk.js": "/frontend-tipped-server-app/static/js/4.3fe10ccd.chunk.js",
     "static/js/4.3fe10ccd.chunk.js.map": "/frontend-tipped-server-app/static/js/4.3fe10ccd.chunk.js.map",
     "index.html": "/frontend-tipped-server-app/index.html",
-    "static/css/0.afd7172b.chunk.css.map": "/frontend-tipped-server-app/static/css/0.afd7172b.chunk.css.map",
+    "static/css/0.b95f64bc.chunk.css.map": "/frontend-tipped-server-app/static/css/0.b95f64bc.chunk.css.map",
     "static/css/3.7b1c032f.chunk.css.map": "/frontend-tipped-server-app/static/css/3.7b1c032f.chunk.css.map",
-    "static/css/main.e8a339cd.chunk.css.map": "/frontend-tipped-server-app/static/css/main.e8a339cd.chunk.css.map",
-    "static/js/3.1ab2db24.chunk.js.LICENSE.txt": "/frontend-tipped-server-app/static/js/3.1ab2db24.chunk.js.LICENSE.txt",
+    "static/css/main.1b82b97e.chunk.css.map": "/frontend-tipped-server-app/static/css/main.1b82b97e.chunk.css.map",
+    "static/js/3.e8d197f3.chunk.js.LICENSE.txt": "/frontend-tipped-server-app/static/js/3.e8d197f3.chunk.js.LICENSE.txt",
     "static/media/App.css": "/frontend-tipped-server-app/static/media/omaha.57bc3d44.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.298bdf69.js",
+    "static/js/runtime-main.e6ce55cc.js",
     "static/css/3.7b1c032f.chunk.css",
-    "static/js/3.1ab2db24.chunk.js",
-    "static/css/main.e8a339cd.chunk.css",
-    "static/js/main.eebdc7df.chunk.js"
+    "static/js/3.e8d197f3.chunk.js",
+    "static/css/main.1b82b97e.chunk.css",
+    "static/js/main.4a5bfdcf.chunk.js"
   ]
 }
