@@ -18,8 +18,8 @@ export default function StatSearchZip (props) {
         );
         const zipData = await data.json();
         let average = zipData["average"];
-        console.log(average);
-        if (average == null){
+        average = (Math.round(parseFloat(average) * 100) / 100).toFixed(2);
+        if (average == null || average == "NaN"){
             average="unknown";
         }
         setAverages(average);
@@ -32,7 +32,7 @@ export default function StatSearchZip (props) {
 
     if (averages === 'unknown'){
         return (
-            <div className='card w-50 h-75 padding-10-px'>
+            <div className='card custom-column-50 custom-height-75 padding-10-px'>
                 <div>
                     <form onSubmit ={e => {onSubmitTask(e)}}>
                         <h1 className="section-header">Search By Zip</h1>
@@ -47,7 +47,7 @@ export default function StatSearchZip (props) {
                             maxLength="5"
                             value={zipCodeSearched}
                         />
-                        <input type="submit" className='btn btn-primary search-button' value="Search by Zip" />
+                        <input type="submit" className='btn btn-primary search-button' value="Search" />
                     </form>
                 </div>
                 <div className='text-info'>
@@ -59,7 +59,7 @@ export default function StatSearchZip (props) {
         );
     } else if (averages){
         return (
-            <div className='card w-50 h-75 padding-10-px'>
+            <div className='card custom-column-50 custom-height-75 padding-10-px'>
                 <div>
                     <form onSubmit ={e => {onSubmitTask(e)}}>
                         <h1 className="section-header">Search By Zip</h1>
@@ -74,7 +74,7 @@ export default function StatSearchZip (props) {
                             maxLength="5"
                             value={zipCodeSearched}
                         />
-                        <input type="submit" className='btn btn-primary search-button' value="Search by Zip" />
+                        <input type="submit" className='btn btn-primary search-button' value="Search" />
                     </form>
                 </div>
                 <div className='text-info'>
@@ -88,7 +88,7 @@ export default function StatSearchZip (props) {
     
     else {
         return (
-            <div className='card w-50 h-75 padding-10-px'>
+            <div className='card custom-column-50 custom-height-75 padding-10-px'>
                 <div>
                     <form onSubmit ={e => {onSubmitTask(e)}}>
                         <h1 className="section-header">Search By Zip</h1>
@@ -103,7 +103,7 @@ export default function StatSearchZip (props) {
                             maxLength="5"
                             value={zipCodeSearched}
                         />
-                        <input type="submit" className='btn btn-primary search-button' value="Search by Zip"/>
+                        <input type="submit" className='btn btn-primary search-button' value="Search"/>
                     </form>
                 </div>
             </div>

@@ -46,12 +46,11 @@ function Stats (props) {
     }
 
     return(
-        <div className="d-flex justify-content-center bg-light full-height">
-            <div className="w-50 padding-10-px">
-                <h1>Welcome to the Omaha Server App</h1>
-    
+        <div className="d-flex bg-light full-height column-mobile">
+            <div className="custom-column-50 padding-10-px">
+                <h1>Welcome to Omaha Tips</h1>
             </div>
-            <div className="w-50">
+            <div className="custom-column-50">
                 <div className="card padding-10-px">
                     <h3 className="card-title">Top 5 Zip Codes for Total Hourly Compensation</h3>
                     <div className="card-body">

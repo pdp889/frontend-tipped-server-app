@@ -5,3 +5,15 @@
 .full-height{
     height: 100vh;
 }
+.custom-height-75 {
+    height: 75%;
+}
+@media screen and (max-width:768px) {
+    #column-mobile{
+        flex-direction: column !important;
+    }
+
+    .custom-height-75 {
+        height: auto;
+    }
+}

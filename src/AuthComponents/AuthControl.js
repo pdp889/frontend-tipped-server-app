@@ -5,7 +5,6 @@ import './AuthControl.css'
 
 export default function AuthControl (props){
     const [signUp, setSignUp] = useState(false);
-    const [login, setLogin] = useState(false);
 
     const toggleSignUp = () => {
         if (signUp === true) {
@@ -15,30 +14,20 @@ export default function AuthControl (props){
         }
     }
 
-    const toggleLogin = () => {
-        if (login === true) {
-            setLogin(false);
-        } else {
-            setLogin(true);
-        }
-    }
-
-    if (login){
+    if (signUp){
         return(
-            <Login setToken={props.setToken} toggle={toggleLogin}/>
-        )
-    } else if (signUp){
-        return(
-            <SignUp setToken={props.setToken} toggle={toggleSignUp}/>
+            <div className='main-login-section d-flex flex-column justify-content-center' id="login-box-2">
+                <SignUp setToken={props.setToken} toggle={toggleSignUp}/>
+            </div>
         )
     } else {
         return(
-            <div className='main-login-section d-flex flex-column justify-content-around'>
-                <h2 className='title d-flex justify-content-around'>Omaha Server App</h2>
-                <div className='body-login-section d-flex justify-content-around'>
-                    <button className='btn btn-primary btn-lg' onClick={toggleSignUp}>Sign Up</button>
-                    <button className='btn btn-primary btn-lg' onClick={toggleLogin}>Log In</button>
+            <div className='main-login-section d-flex flex-column justify-content-center' id="login-box">
+                <div className="border-bottom">
+                    <h2 className='title d-flex justify-content-around'>Omaha Tips</h2>
+                    <h6 className="subheading">For servers in the Omaha, NE metro area to view unofficial pay stats for area restaurants.</h6>
                 </div>
+                <Login setToken={props.setToken} toggle={toggleSignUp}/>
             </div>
         )
     }

@@ -34,25 +34,27 @@ export default function Login(props) {
 
     return(
       <div className="login-signup">
-        <div className='d-flex justify-content-between'>
-        <h3>Log In</h3>
-        <button className="btn btn-outline-link" onClick={props.toggle}>Back</button>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className='form-group'>
-          <label htmlFor='username'>Username</label>
-            <input type="text" name='username' className='form-control' onChange={e => setUserName(e.target.value)} />
-          <label htmlFor='password'>Password</label>
-            <input type="password" className='form-control' onChange={e => setPassword(e.target.value)} />
-        </div>
-        
-        <div className='login-signup-button'>
-          <button className="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-      <div className="text-danger">
-        {message}
-      </div>
+          <form onSubmit={handleSubmit}>
+            <div className='form-group'>
+              <label htmlFor='username'>Username</label>
+                <input type="text" name='username' className='form-control' onChange={e => setUserName(e.target.value)} />
+              <label htmlFor='password'>Password</label>
+                <input type="password" className='form-control' onChange={e => setPassword(e.target.value)} />
+            </div>
+            <div className='login-signup-button'>
+              <button className="btn btn-primary" type="submit">Log In</button>
+              <div className="switch-to-sign-up">
+                <span className="no-account">No Account? </span>
+                <a className="sign-up-link no-account" onClick={props.toggle}>Sign Up</a>
+              </div>
+              <div className="switch-to-sign-up-mobile">
+                <a className="sign-up-link no-account" onClick={props.toggle}>No Account?</a>
+              </div>
+            </div>
+          </form> 
+          <div className="text-danger">
+            {message}
+          </div>
     </div>
   )
 

@@ -12,7 +12,7 @@ function AddRecord (props) {
     }
 
     return (
-        <div className="d-flex flex-row bg-light full-height">
+        <div className="d-flex flex-row bg-light full-height column-mobile" id="column-mobile-add">
             <AddRestaurant setNewRestaurant={update} token={props.token}/>
             <AddPay  token={props.token}/>
         </div>

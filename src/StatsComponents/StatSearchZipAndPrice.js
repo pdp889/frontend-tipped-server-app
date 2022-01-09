@@ -18,10 +18,14 @@ function StatSearchZipAndPrice (props) {
         );
         const zipData = await data.json();
         let average = zipData["average"];
-        console.log(average);
+        average = (Math.round(parseFloat(average) * 100) / 100).toFixed(2);
+        if (average == null || average == "NaN"){
+            average="unknown";
+        }
         if (average == null){
             average="unknown";
         }
+        average = (Math.round(parseFloat(average) * 100) / 100).toFixed(2);
         setAverages(average);
     }
 
@@ -31,7 +35,7 @@ function StatSearchZipAndPrice (props) {
     }
     if (averages === 'unknown'){
         return (
-            <div className='card w-50 h-75 padding-10-px'>
+            <div className='card custom-column-50custom-height-75 padding-10-px'>
                 <div >
                     <form onSubmit ={e => {onSubmitTask(e)}}>
                         <h1 className="section-header">Search By Zip and Restaurant Price Rating</h1>
@@ -55,7 +59,7 @@ function StatSearchZipAndPrice (props) {
                             autoComplete="off"
                             value={entreeSearched}
                         />
-                        <input type="submit"  className='btn btn-primary search-button' value="Search by Zip and Restaurant Price Rating" />
+                        <input type="submit"  className='btn btn-primary search-button' value="Search" />
                     </form>
                 </div>
                 <div className='text-info'>
@@ -65,7 +69,7 @@ function StatSearchZipAndPrice (props) {
         )
     } else if (averages){
         return (
-            <div className='card w-50 h-75 padding-10-px'>
+            <div className='card custom-column-50 custom-height-75 padding-10-px'>
                 <div >
                     <form onSubmit ={e => {onSubmitTask(e)}}>
                         <h1 className="section-header">Search By Zip and Restaurant Price Rating</h1>
@@ -89,7 +93,7 @@ function StatSearchZipAndPrice (props) {
                             autoComplete="off"
                             value={entreeSearched}
                         />
-                        <input type="submit"  className='btn btn-primary search-button' value="Search by Zip and Restaurant Price Rating" />
+                        <input type="submit"  className='btn btn-primary search-button' value="Search" />
                     </form>
                 </div>
                 <div className='text-info'>
@@ -99,7 +103,7 @@ function StatSearchZipAndPrice (props) {
         )
     } else {
         return (
-            <div className='card w-50 h-75 padding-10-px'>
+            <div className='card custom-column-50 custom-height-75 padding-10-px'>
                 <div >
                     <form onSubmit ={e => {onSubmitTask(e)}}>
                         <h1 className="section-header">Search By Zip and Restaurant Price Rating</h1>
@@ -123,7 +127,7 @@ function StatSearchZipAndPrice (props) {
                             autoComplete="off"
                             value={entreeSearched}
                         />
-                        <input type="submit"  className='btn btn-primary search-button' value="Search by Zip and Restaurant Price Rating" />
+                        <input type="submit"  className='btn btn-primary search-button' value="Search" />
                     </form>
                 </div>
             </div>

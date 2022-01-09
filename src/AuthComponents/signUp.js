@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// this is an asycn function which signs up a user. It is called in the handleSubmit function which is called when a user clicks sign up.
+// this is an async function which signs up a user. It is called in the handleSubmit function which is called when a user clicks sign up.
 async function signUser(credentials) {
  return fetch('https://tipped-server-app.herokuapp.com/api/createNewUser', {
     method: 'POST',

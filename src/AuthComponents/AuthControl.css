@@ -8,7 +8,33 @@
 .login-signup{
     padding: 10px;
 }
-
-.login-signup-button{
+.switch-to-sign-up-mobile {
+    display: none;
+}
+.login-signup-button, .switch-to-sign-up, .switch-to-sign-up-mobile{
     margin-top: 10px;
+}
+
+.sign-up-link {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@media screen and (max-width:768px) {
+    .subheading{
+        display: none;
+    }
+
+    .col {
+        flex: auto !important;
+    }
+}
+
+@media screen and (max-width:580px){
+    .switch-to-sign-up {
+        display: none;
+    }
+    .switch-to-sign-up-mobile {
+        display: block;
+    }
 }

@@ -6,10 +6,10 @@ export default function UpdateBox (props) {
         fetchItems()
     },[]);
 
-    const [hourlyPay, setHourlyPay] = useState(props.value[1]);
-    const [weeklyTips, setWeeklyTips] = useState(props.value[2]);
-    const [weeklyHours, setWeeklyHours] = useState(props.value[3]);
-    const [restaurant, setRestaurant] = useState(props.value[4]);
+    const [hourlyPay, setHourlyPay] = useState(props.value.hourly);
+    const [weeklyTips, setWeeklyTips] = useState(props.value.tips);
+    const [weeklyHours, setWeeklyHours] = useState(props.value.hours);
+    const [restaurant, setRestaurant] = useState(props.value.restaurant);
     const [allRestaurants, setAllRestaurants] = useState([]);
 
 
@@ -24,8 +24,13 @@ export default function UpdateBox (props) {
         const dataReturn = await data.json();
         let restaurantObjs = [];
         Array.from(dataReturn.restaurants).forEach(item => {
-            let arrayedItem = [item._id, item.zip_code, item.name, item.entree_price]
-            restaurantObjs.push(arrayedItem);
+            let objItem = {
+                id: item._id,
+                zip: item.zip,
+                name: item.name,
+                price: item.entree_price
+            };
+            restaurantObjs.push(objItem);
         })
         setAllRestaurants(restaurantObjs);
     }
@@ -35,7 +40,7 @@ export default function UpdateBox (props) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + props.token },
-            body: JSON.stringify({ hourly_pay: hourlyPay, weekly_tips: weeklyTips, weekly_hours: weeklyHours, restaurant: restaurant, payid: props.value[0]})
+            body: JSON.stringify({ hourly_pay: hourlyPay, weekly_tips: weeklyTips, weekly_hours: weeklyHours, restaurant: restaurant, payid: props.value.id})
         }
         console.log(requestOptions)
         fetch('https://tipped-server-app.herokuapp.com/api/updatePay', requestOptions)
@@ -68,20 +73,8 @@ export default function UpdateBox (props) {
     }
 
     return (
-        <div className="d-flex flex-row bg-light full-height">
-            
-            <div className="card w-50 h-75" >
-            <div className='card-body'>
-                <h1>Original</h1>
-                
-                    <p>Pay Record Id: {props.value[0]}</p>
-                    <p>Hourly Pay: {props.value[1]}</p>
-                    <p>Weekly Tips: {props.value[2]}</p>
-                    <p>Weekly Hours: {props.value[3]}</p>
-                    <p>Restaurant: {props.value[6]}</p>
-                </div>
-            </div>
-            <div className="card w-50 h-75">
+        <div className="d-flex flex-row bg-light full-height " id="column-mobile-myrecords-update">
+            <div className="card custom-column-50 custom-height-75">
             <div className='card-body'>
                 <form onSubmit ={e => {onSubmitTask(e)}}>
                     <h1 className="section-header">Update</h1>
@@ -118,7 +111,7 @@ export default function UpdateBox (props) {
                     <label htmlFor='Restaurant'>Restaurant</label>
                     <select className='form-select' name='restaurant' onChange={onSelectChange} value={restaurant}>
                         {allRestaurants.map((value, index) => {
-                            return <option key={index} value={value[0]}>{value[2]} | {value[1]}</option>
+                            return <option key={index} value={value.id}>{value.name} | {value.zip}</option>
                         })}
                     </select>
                     <div className="d-flex justify-content-around">
@@ -128,6 +121,17 @@ export default function UpdateBox (props) {
                     
                 </form>
                 </div>   
+            </div>
+            <div className="card custom-column-50 custom-height-75" >
+            <div className='card-body'>
+                <h1>Original</h1>
+                
+                    <p>Pay Record Id: {props.value.id}</p>
+                    <p>Hourly Pay: {props.value.hourly}</p>
+                    <p>Weekly Tips: {props.value.tips}</p>
+                    <p>Weekly Hours: {props.value.hours}</p>
+                    <p>Restaurant: {props.value.restaurantName}</p>
+                </div>
             </div>
         </div>
 

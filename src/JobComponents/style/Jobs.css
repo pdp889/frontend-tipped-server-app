@@ -1,0 +1,5 @@
+@media screen and (max-width:768px) {
+    #column-mobile-jobs{
+        flex-direction: column !important;
+    }
+}

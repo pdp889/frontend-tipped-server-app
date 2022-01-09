@@ -4,15 +4,15 @@ export default function PayRecordCard (props){
     // This checks if the value of the average pay for the card's zip code is unknown or not. 
     // If it is unknown, the card is rendered without the average pay statement.
 
-    if (props.value[4] !== 'unknown') {
+    if (props.value.average !== 'NaN') {
         return (
             <div className="card padding-10-px" >
                 <div key={props.index}>
-                    <p>Title: {props.value[0]}</p>
-                    <p>Restaurant: {props.value[1]}</p>
-                    <p>Location: {props.value[2]}</p>
-                    <a href={props.value[3]}> Apply/Description </a>
-                    <p>Average pay for the zip code: ${props.value[4]}</p>
+                    <p>Title: {props.value.title}</p>
+                    <p>Restaurant: {props.value.restaurant}</p>
+                    <p>Location: {props.value.location}</p>
+                    <a href={props.value.url}> Apply/Description </a>
+                    <p>Average pay for the zip code: ${props.value.average}</p>
                 </div>
             </div>
             )
@@ -20,10 +20,10 @@ export default function PayRecordCard (props){
         return (
             <div className="card padding-10-px" >
                 <div key={props.index}>
-                    <p>Title: {props.value[0]}</p>
-                    <p>Restaurant: {props.value[1]}</p>
-                    <p>Location: {props.value[2]}</p>
-                    <a href={props.value[3]}> Apply/Description </a>
+                    <p>Title: {props.value.title}</p>
+                    <p>Restaurant: {props.value.restaurant}</p>
+                    <p>Location: {props.value.location}</p>
+                    <a href={props.value.url}> Apply/Description </a>
                 </div>
             </div>
             )

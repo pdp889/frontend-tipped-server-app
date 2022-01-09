@@ -1,6 +1,30 @@
 .header {
     height: 50px;
 }
-.log-out{
-    background-color: tomato;
+
+.header-button {
+    border-radius: 0px !important;
+}
+
+.hidden {
+    display:none;
+}
+
+.dropdown-button {
+    border-radius: 0 !important;
+}
+.logout {
+    cursor: pointer;
+}
+@media screen and (max-width:600px) {
+    .hidden {
+        display:block !important;
+    }
+    #header-shown {
+        display:none !important;
+    }
+    .dropdown-button {
+        text-align: center;
+        min-height: 40px;
+    }
 }

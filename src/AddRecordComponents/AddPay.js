@@ -28,11 +28,11 @@ function AddPay(props){
         setTitle(dataReturn.title);
         let restaurantObjs = [];
         Array.from(dataReturn.restaurants).forEach(item => {
-            let arrayedItem = [item._id, item.zip_code, item.name, item.entree_price]
-            restaurantObjs.push(arrayedItem);
+            let objItem = {id:item._id, zip:item.zip_code, name:item.name, price:item.entree_price};
+            restaurantObjs.push(objItem);
         })
         setAllRestaurants(restaurantObjs);
-        setRestaurant(restaurantObjs[0][0]);
+        setRestaurant(restaurantObjs[0].id);
     }
 
     // This function sends the information to create a new pay record //
@@ -78,10 +78,10 @@ function AddPay(props){
     }
 
     return (
-        <div className="card w-50 h-75 padding-10-px">
+        <div className="card custom-column-50 custom-height-75 padding-10-px">
             <div>
                 <form onSubmit ={e => {onSubmitTask(e)}}>
-                    <h1>{title}</h1>
+                    <h1 className="section-header">{title}</h1>
                     <label htmlFor='hourly'>Hourly</label>
                     <input
                         onChange={e => setHourlyPay(e.target.value)}
@@ -115,7 +115,7 @@ function AddPay(props){
                     <label htmlFor='restaurant'>Restaurant</label>
                     <select name="restaurant" className="form-select" onChange={onSelectChange}>
                         {allRestaurants.map((value, index) => {
-                            return <option key={index} value={value[0]}>{value[2]} | {value[1]}</option>
+                            return <option key={index} value={value.id}>{value.name} | {value.zip}</option>
                         })}
                     </select>
                     <input type="submit" className="btn btn-primary record-submit" value="Add Pay Record" />

@@ -6,8 +6,8 @@ import "./style/MyRecords.css";
 export default function MyRecord (props) {
     
     const [deleteCount, setdeleteCount] = useState(0);
-    const [updateValue, setUpdateValue] = useState([]);
-    const [allRecords, setAllRecords] = useState([[]]);
+    const [updateValue, setUpdateValue] = useState({});
+    const [allRecords, setAllRecords] = useState([{}]);
     
 
     useEffect(() => {
@@ -20,17 +20,17 @@ export default function MyRecord (props) {
     }
 
     const resetUpdateValue = () => {
-        setUpdateValue([]);
+        setUpdateValue({});
     }
 
     // This method checks if the value id from the update-button-click is the same as the presently displayed update value.
     function changeUpdateValue (value) {
-        console.log(updateValue[0]);
-        console.log(value[0]);
-        if (updateValue[0] != value[0]){
+        console.log(updateValue.id);
+        console.log(value.id);
+        if (!updateValue.id || (updateValue.id != value.id)){
             setUpdateValue(value)
         } else {
-            setUpdateValue([])
+            setUpdateValue({})
         }
     }
     // This method fetches a list of all restaurants and all pay records for the logged-in user, and sets the value of the user's records to allRecords
@@ -45,8 +45,13 @@ export default function MyRecord (props) {
         const dataReturn = await data.json();
         let restaurantObjs = [];
         Array.from(dataReturn).forEach(item => {
-            let arrayedItem = [item._id, item.zip_code, item.name, item.entree_price]
-            restaurantObjs.push(arrayedItem);
+            let objItem = {
+                id: item._id,
+                zip: item.zip_code,
+                name: item.name,
+                price: item.entree_price
+            }
+            restaurantObjs.push(objItem);
         })
 
         const data2 = await fetch ('https://tipped-server-app.herokuapp.com/api/allPayByUser', {
@@ -62,25 +67,34 @@ export default function MyRecord (props) {
         Array.from(dataReturn2).forEach(item => {
             let restaurantName = '';
             restaurantObjs.forEach(restaurant => {
-                if (item.restaurant == restaurant[0]){
-                    restaurantName = restaurant[2];
+                if (item.restaurant == restaurant.id){
+                    restaurantName = restaurant.name;
                 }
-            })
-            recordObjs.push([item._id, item.hourly_pay, item.weekly_tips, item.weekly_hours, item.restaurant, item.user, restaurantName]);
+            });
+            let obj = {
+                id: item._id,
+                hourly: item.hourly_pay,
+                tips: item.weekly_tips,
+                hours: item.weekly_hours,
+                restaurant: item.restaurant,
+                user: item.user,
+                restaurantName: restaurantName
+            }
+            recordObjs.push(obj);
         })
         setAllRecords(recordObjs);
     }
 
     //if there is no update value, the update box is not displayed. if there is an update value, the update box is displayed along with the record cards.
-    if (!updateValue[0]){
+    if (!updateValue.id){
     return(
-        <div className="d-flex flex-row bg-light">
-                <div className="w-50 padding-10-px">
+        <div className="d-flex flex-row bg-light column-mobile" id="column-mobile-myrecords">
+                <div className="custom-column-50 padding-10-px">
 
                 <h1>Current Records</h1>
                 <p>These are all of your current records in our database, feel free to update or delete any of them</p>
                 </div>
-                <div className='w-50'>
+                <div className='custom-column-50'>
                     {allRecords.map((value, index) => {
                         return <PayRecordCard index={index} value={value} token={props.token} increaseDeleteCount={increaseDeleteCount} increaseUpdateCount={changeUpdateValue}/>
                     })}
